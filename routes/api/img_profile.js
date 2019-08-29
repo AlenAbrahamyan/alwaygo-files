@@ -2,14 +2,12 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const router = express.Router();
 var user = require('./auth');
-const path = require('path');
 
 const app = express();
 let tiv = 10500;
 app.use(fileUpload());
 const User = require('../../models/User');
 
-path.resolve(__dirname);
 
 // Upload Endpoint
 router.post('/', (req, res) => {
@@ -19,10 +17,11 @@ router.post('/', (req, res) => {
 tiv++;
   const file = req.files.file;
 
-  file.mv(`${__dirname}/pro_images/${tiv}${file.name}`, err => {
+
+  file.mv(`${__dirname}/../../images/profile_img/${tiv}${file.name}`, err => {
     if (err) {
       console.error(err);
-      return res.status(500).send(__dirname);
+      return res.status(500).json({ msg: err });
     }
 console.log(tiv, file.name);
 console.log(user.user_info);

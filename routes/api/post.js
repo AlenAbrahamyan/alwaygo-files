@@ -51,7 +51,7 @@ router.post('/text', (req, res) => {
         if(req.body.text == 'undefined'){req.body.text=''}
         texta = req.body;
         
-        req.body.name = /*user.user_info.name*/__dirname;
+        req.body.name = user.user_info.name;
         req.body.last_name = user.user_info.last_name;
         req.body.username = user.user_info.username;
         req.body.profile_img = user.user_info.profile_img;

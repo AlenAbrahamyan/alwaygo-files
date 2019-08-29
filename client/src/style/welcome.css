@@ -1,0 +1,104 @@
+/*  #ed3b58 >> pink
+    #48c9b0 >> green
+
+    https://images.unsplash.com/photo-1562824429-7c023697286d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80
+    https://images.unsplash.com/photo-1562386130-926081dc4fbf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1510&q=80
+    https://images.unsplash.com/photo-1562826679-25f12e5caf65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80
+    https://images.unsplash.com/photo-1562867774-acd17cc9dd6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80
+    https://images.unsplash.com/photo-1562932701-d3ee3c50d321?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80
+    https://images.unsplash.com/photo-1470215883992-c49406afc34f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80
+    https://images.unsplash.com/photo-1522035776691-846d50b63166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80
+    
+    */
+body{
+    margin: 0;
+    font-family: arial;
+
+}
+
+.SimpleNavbar{
+  width: 100%;
+  box-shadow: 1px 2px 20px 0px #00000081;  
+  background-color: white;
+}
+
+.LogoWelcome{
+    margin-left: 50px;
+}
+
+.input_for_welcome {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+.btn_welcome{
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #ed3b58; 
+    color: white; 
+}
+
+.btn_welcome:hover{
+    background-color: #dc2d49;
+}
+
+.green_title{
+    color: #48c9b0;
+    font-size: 40px;
+}
+
+.LoginForm{
+    width: 350px;
+    background-color: white;
+    float: right;
+    padding-bottom: 40px;
+    margin-top: 5%;
+    margin-right: 5%;   
+    box-shadow: 1px 2px 20px 0px #00000081;  
+}
+
+.Welcome{
+    position: absolute ;
+    min-height:100%;
+    width: 100%;
+
+    background: url(https://images.unsplash.com/photo-1562386130-926081dc4fbf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1510&q=80) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+}
+
+.RegistrationForm{
+    width: 400px;
+    background-color: white;
+    float: center;
+    padding-bottom: 30px;
+    padding-top: 1px;
+    margin-top: 3%;   
+    box-shadow: 1px 2px 20px 0px #00000081;  
+}
+
+.error_info{
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    font-size: 16px;
+    background-color: #EC7063; 
+    border: 1px solid #E74C3C;
+}
+

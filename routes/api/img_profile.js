@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
 tiv++;
   const file = req.files.file;
 
-  file.mv(`${__dirname}/../../images/profile_img/${tiv}${file.name}`, err => {
+  file.mv(`${__dirname}/pro_images/${tiv}${file.name}`, err => {
     if (err) {
       console.error(err);
       return res.status(500).send(__dirname);

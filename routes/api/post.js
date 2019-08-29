@@ -16,8 +16,6 @@ const Post = require('../../models/Post');
 
 // Post Image
 router.post('/image', (req, res) => {
-    console.log('xsxsxsxsx');
-    console.log(req.files)
     if (req.files == null) {
         images = undefined;
         res.json({ post_img: `as` });
@@ -32,8 +30,8 @@ router.post('/image', (req, res) => {
                 return res.status(500).send(err);
             }
 
-            res.json({ post_img: `https://alwaygo-server.herokuapp.com/images/post_img/${number}${file.md5}${file.name}` });
-            post_image=`https://alwaygo-server.herokuapp.com/images/post_img/${number}${file.md5}${file.name}`;
+            res.json({ post_img: `https://alwaygo.herokuapp.com/images/post_img/${number}${file.md5}${file.name}` });
+            post_image=`https://alwaygo.herokuapp.com/images/post_img/${number}${file.md5}${file.name}`;
         });
     }
 

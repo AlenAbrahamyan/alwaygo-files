@@ -24,7 +24,7 @@ tiv++;
     }
 console.log(tiv, file.name);
 console.log(user.user_info);
-    user.user_info.profile_img =`https://alwaygo-server.herokuapp.com/images/profile_img/${tiv}${file.name}`;
+    user.user_info.profile_img =`https://alwaygo.herokuapp.com/images/profile_img/${tiv}${file.name}`;
     
     //Now update profile image url in Mongdb
     User.update( {_id:user.user_info._id} , user.user_info, function(err){

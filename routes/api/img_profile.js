@@ -17,11 +17,10 @@ router.post('/', (req, res) => {
 tiv++;
   const file = req.files.file;
 
-
   file.mv(`${__dirname}/../../images/profile_img/${tiv}${file.name}`, err => {
     if (err) {
       console.error(err);
-      return res.status(500).json({ msg: err });
+      return res.status(500).send(err);
     }
 console.log(tiv, file.name);
 console.log(user.user_info);

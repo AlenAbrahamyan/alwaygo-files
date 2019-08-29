@@ -2,6 +2,7 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const router = express.Router();
 var user = require('./auth');
+const path = require('path');
 
 const app = express();
 let tiv = 10500;
@@ -17,7 +18,7 @@ router.post('/', (req, res) => {
 tiv++;
   const file = req.files.file;
 
-  file.mv(`${__dirname}/../../images/profile_img/${tiv}${file.name}`, err => {
+  file.mv(`${path.resolve(__dirname)}/../../images/profile_img/${tiv}${file.name}`, err => {
     if (err) {
       console.error(err);
       return res.status(500).send(err);

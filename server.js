@@ -14,6 +14,7 @@ app.use(fileUpload());
 app.use(express.json());
 app.use('/style_api', express.static('style_api'));
 app.use('/images/profile_img', express.static('images/profile_img'));
+app.use('./routes/api/pro_img', express.static('pro_img'));
 app.use('/images/post_img', express.static('images/post_img'));
 // DB Config
 const db = config.get('mongoURI');

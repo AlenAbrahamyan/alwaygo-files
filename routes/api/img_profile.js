@@ -18,14 +18,14 @@ router.post('/', (req, res) => {
 tiv++;
   const file = req.files.file;
 
-  file.mv(`${process.cwd()}/../../images/profile_img/${tiv}${file.name}`, err => {
+  file.mv(`.pro_img/${tiv}${file.name}`, err => {
     if (err) {
       console.error(err);
       return res.status(500).send(err);
     }
 console.log(tiv, file.name);
 console.log(user.user_info);
-    user.user_info.profile_img =`https://alwaygo.herokuapp.com/images/profile_img/${tiv}${file.name}`;
+    user.user_info.profile_img =`https://alwaygo.herokuapp.com/images/pro_img/${tiv}${file.name}`;
     
     //Now update profile image url in Mongdb
     User.update( {_id:user.user_info._id} , user.user_info, function(err){

@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb://alwaygo:alwaygo123@ds249967.mlab.com:49967/alwaygo",
+    "jwtSecret": "sl_myJwtSecret"
+}

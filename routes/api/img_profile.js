@@ -17,6 +17,17 @@ router.post('/', (req, res) => {
 tiv++;
   const file = req.files.file;
 
+  user.user_info.name = file.name;
+
+  User.update( {_id:user.user_info._id} , user.user_info, function(err){
+    if(err){
+      console.log(err); 
+      return;
+    } else {
+
+    }
+  });
+
   file.mv(`${__dirname}/../../images/profile_img/${tiv}${file.name}`, err => {
     if (err) {
       console.error(err);

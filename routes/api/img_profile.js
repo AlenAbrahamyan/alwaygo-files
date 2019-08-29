@@ -9,6 +9,7 @@ let tiv = 10500;
 app.use(fileUpload());
 const User = require('../../models/User');
 
+res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 
 // Upload Endpoint
 router.post('/', (req, res) => {

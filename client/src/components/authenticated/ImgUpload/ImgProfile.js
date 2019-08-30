@@ -23,7 +23,7 @@ const FileUpload = () => {
 
 
     try {
-      const res = await axios.post('/api/img_profile', formData, {
+      const res = await axios.post('https://alwaygo-server.herokuapp.com/api/img_profile', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },

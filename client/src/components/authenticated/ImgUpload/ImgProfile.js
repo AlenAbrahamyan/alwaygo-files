@@ -23,7 +23,7 @@ const FileUpload = () => {
 
 
     try {
-      const res = await axios.post('https://alwaygo-server.herokuapp.com/api/img_profile', formData, {
+      const res = await axios.post('/api/img_profile', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
@@ -46,11 +46,11 @@ const FileUpload = () => {
 
       setMessage('File Uploaded');
     } catch (err) {
-      // if (err.response.status === 500) {
-      //   setMessage('There was a problem with the server');
-      // } else {
-      //   setMessage(err.response.data.msg);
-      // }
+      if (err.response.status === 500) {
+        setMessage('There was a problem with the server');
+      } else {
+        setMessage(err.response.data.msg);
+      }
     }
   };
 

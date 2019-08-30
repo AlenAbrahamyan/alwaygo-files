@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import AddPost from '../AddPost';
-import ImgProfile from '../ImgUpload/ImgProfile'
 import MyPostBox from '../MyPostBox';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import LogoutToo from '../LogoutToo';
-
+import axios from 'axios';
+import { storage } from '../../../config/firebaseConfig';
 
 
 class Navbar extends Component {
@@ -14,20 +14,60 @@ class Navbar extends Component {
     auth: PropTypes.object.isRequired
   }
 
+  state = {
+    img: this.props.auth.user.user.profile_img,
+    loading: false
+  }
+
+  handleImgUpload = (e) => {
+    if (e.target.files[0]) {
+      const image = (e.target.files[0]);
+      const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      uploadTask.on('state_changed',
+        (snapshot) => {
+          this.setState({ loading: true })
+          //console.log(snapshot);
+          snapshot.ref.getDownloadURL().then((downloadUrl) => {
+            // console.log(downloadUrl);
+            this.setState({ img: downloadUrl })
+            this.setState({ loading: false })
+            axios.post('api/img_profile', {img_url: downloadUrl}, {
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          });
+          })
+        }
+      )
+    }
+  }
 
 
   render() {
     const { user } = this.props.auth;
-     
+
     return (
       <div className="MyProfile" >
 
         <title>{user.user.username} - alwaygo</title>
         <div className="profile_img_block">
-          <img src={user.user.profile_img} className="profile_img shadow" />
+          <img src={this.state.img} className="profile_img shadow" />
           <div>
             <br />
-            <ImgProfile />
+            <div className="upload-btn-wrapper2">
+              <div className="btn-f2">Change Image</div>
+              <input
+                onChange={this.handleImgUpload}
+                type='file'
+                className="input_post_img"
+              />
+            </div>
+
+            <div>{
+              this.state.loading ? (<center><img src='https://dportek.com/img/design/loading.gif' width='60px' /></center>) : (null)
+            }</div>
+            <br />
+            <br />
             <br />
             <a href="/messages" className="bar-links">Messages</a>
             <br />
@@ -45,7 +85,7 @@ class Navbar extends Component {
           </div>
 
           <AddPost />
-          <MyPostBox/>
+          <MyPostBox />
 
         </div>
         <div></div>

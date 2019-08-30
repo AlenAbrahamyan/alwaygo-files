@@ -178,6 +178,46 @@ body{
     opacity: 0;
     
   }
+
+
+  .upload-btn-wrapper2 {
+    margin-left: 3px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    box-shadow: -1px -2px 20px 0px #00000021;  
+  }
+  
+  
+  .btn-f2 {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 120px;
+    border-radius: 0px;
+    font-size: 16px;
+    
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #ed3b58; 
+    color: white; 
+    box-shadow: -1px -2px 20px 0px #00000021;
+  }
+
+  
+  .upload-btn-wrapper2 .input_post_img {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    
+  }
+
   
   .plus_size{
     font-size: 45px;

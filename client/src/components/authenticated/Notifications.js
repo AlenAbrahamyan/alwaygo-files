@@ -148,7 +148,14 @@ class Notification extends Component {
                 <title>Notifications - alwaygo</title>
                 <div className="for_margin">
                     <p className='green_title'>Notifications</p>
-
+                    {this.state.friendship_info ? (this.state.friendship_info.received[0]==undefined?(
+                        
+                            <div>
+                               Notifications page is empty!
+                            </div>
+                            
+                        
+                    ):(null)) : (null)}
                     {this.state.friendship_info ? (this.state.friendship_info.received.map(
                         (user) => {
                             return (<div>

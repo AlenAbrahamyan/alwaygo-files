@@ -2,40 +2,16 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const router = express.Router();
 var user = require('./auth');
-
 const app = express();
-let tiv = 10500;
 app.use(fileUpload());
 const User = require('../../models/User');
 
 
-// Upload Endpoint
 router.post('/', (req, res) => {
-  if (req.files === null) {
-    return res.status(400).json({ msg: 'No file uploaded' });
-  }
-tiv++;
-  const file = req.files.file;
 
-  user.user_info.name = file.name;
+  console.log(req.body)
 
-  User.update( {_id:user.user_info._id} , user.user_info, function(err){
-    if(err){
-      console.log(err); 
-      return;
-    } else {
-
-    }
-  });
-
-  file.mv(`${__dirname}/../../images/profile_img/${tiv}${file.name}`, err => {
-    if (err) {
-      console.error(err);
-      return res.status(500).send(err);
-    }
-console.log(tiv, file.name);
-console.log(user.user_info);
-    user.user_info.profile_img =`https://alwaygo.herokuapp.com/images/profile_img/${tiv}${file.name}`;
+   user.user_info.profile_img = req.body.img_url;
     
     //Now update profile image url in Mongdb
     User.update( {_id:user.user_info._id} , user.user_info, function(err){
@@ -47,7 +23,6 @@ console.log(user.user_info);
       }
     });
 
-  });
 });
 
 module.exports = router;

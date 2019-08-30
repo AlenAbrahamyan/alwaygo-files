@@ -102,6 +102,15 @@ class Notification extends Component {
                 <div className="for_margin">
                     <p className='green_title'>My Friends</p>
 
+                    {this.state.friendship_info ? (this.state.friendship_info.friends[0]==undefined?(
+                        
+                        <div>
+                           Friends list is empty!
+                        </div>
+                        
+                    
+                ):(null)) : (null)}
+
                     {this.state.friendship_info ? (this.state.friendship_info.friends.map(
                         (friend) => {
                             return (

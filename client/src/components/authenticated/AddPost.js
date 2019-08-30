@@ -1,113 +1,92 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, Component } from 'react';
 import axios from 'axios';
-//import PostBox from './PostBox';
-let posts = [];
-const AddPost = () => {
-    const [file, setFile] = useState('');
-    const [filename, setFilename] = useState('Choose File');
-    const [uploadedFile, setUploadedFile] = useState({});
-    const [message, setMessage] = useState('');
-    const [uploadPercentage, setUploadPercentage] = useState(0);
-    let post_text;
-    
+import { storage } from '../../config/firebaseConfig';
 
-    const onChangeText = e => {
-        post_text = e.target.value;
-    };
+class AddPost extends Component { 
 
-    const onChangeImage = e => {
-        setFile(e.target.files[0]);
-        setFilename(e.target.files[0].name);
-    };
-
-    const onSubmit = async e => {
-        e.preventDefault();
-        const formDataImage = new FormData();
-        formDataImage.append('image', file);
-
-        const formDataText = new FormData();
-        formDataText.append('text', post_text);
+    state = {
+        post_img: null,
+        text: null,
+        loading: false,
+        msg: ''
+    }
 
 
-        try {
-            const res = await axios.post('api/post/image', formDataImage, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
-                onUploadProgress: progressEvent => {
-                    setUploadPercentage(
-                        parseInt(
-                            Math.round((progressEvent.loaded * 100) / progressEvent.total)
-                        )
-                    );
+    handleImgUpload = (e) => {
+        if (e.target.files[0]) {
+          const image = (e.target.files[0]);
+          const uploadTask = storage.ref(`images/${image.name}`).put(image);
+          uploadTask.on('state_changed',
+            (snapshot) => {
+              this.setState({ loading: true })
+             
+              snapshot.ref.getDownloadURL().then((downloadUrl) => {
+               
+                this.setState({ post_img: downloadUrl })
+                this.setState({ loading: false })
 
-                    // Clear percentage
-                    setTimeout(() => setUploadPercentage(0), 10000);
-                }
-            });
-
-
-
-            const resa = await axios.post('api/post/text', formDataText, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
-
-            const { post_img } = res.data;
-            const { post_content } = resa.data;
-
-            setUploadedFile({ post_img, post_content });
-            //console.log(post_content);
-            posts.push(uploadedFile.post_content);
-            //console.log(posts);
-
-            setMessage(null);
-
-        } catch (err) {
-            if (err.response.status === 500) {
-                setMessage('There was a problem with the server');
-            } else {
-                setMessage(err.response.data.msg);
+              })
             }
+          )
         }
-        
-        window.location.reload()
+      }
+
+
+     onChangeText = e => {
+        this.setState({text: e.target.value})
     };
 
 
+     onSubmit = async e => {
+        e.preventDefault();
+       
+        if(this.state.text==null && this.state.post_img==null){
+            this.setState({msg: 'The post is empty!'})
+        }else{
 
+            this.setState({msg: ''})
+
+            const res = await axios.post('api/post', {text: this.state.text, post_img: this.state.post_img }, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+            window.location.reload()
+        
+    }
+    };
+
+
+    render() {
     return (
         <Fragment>
+            <br/>
+            <br/>
+            <form onSubmit={this.onSubmit}>
+                {this.state.msg ? <div><div className="error_msg_post">{this.state.msg}</div><br /></div> : null}
 
-            <form onSubmit={onSubmit}>
-                {message ? <div><div className="error_msg_post">{message}</div><br /></div> : null}
-
-                <textarea className="text_add_post" placeholder="Create Post..." onChange={onChangeText}></textarea>
- 
+                <textarea className="text_add_post" placeholder="Create Post..." onChange={this.onChangeText}></textarea>
 
                 <div className="upload-btn-wrapper">
                     <div className="btn-f"><p className="plus_size">+</p>Img</div>
-                    <input type="file" className="input_post_img" onChange={onChangeImage} />
+                    <input type="file" className="input_post_img" onChange={this.handleImgUpload}/>
                 </div>
 
                 <br />
-                <input className="add_post_btn" type="submit" value="POST" />
-
+                {
+                    this.state.loading?(<center><img src='https://dportek.com/img/design/loading.gif' width='60px' /></center>):(
+                        <input className="add_post_btn" type="submit" value="POST" />
+                    )
+                }
 
             </form>
             <br/>
+            <br/>
             
-            {uploadedFile.post_content ? (
-                <div className='row mt-5'>
-                   {/* {posts.map( (my_post) =>{ <PostBox post_content={my_post}/>})} */}
-                   {/* <PostBox post_content={uploadedFile.post_content}/>  */}
-                </div>
-
-            ) : null}
         </Fragment>
     );
+    }
 };
 
 export default AddPost;

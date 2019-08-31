@@ -1,16 +1,24 @@
 import React, { Fragment, Component } from 'react';
 import axios from 'axios';
 import { storage } from '../../config/firebaseConfig';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class AddPost extends Component { 
+
+    static propTypes = {
+        auth: PropTypes.object.isRequired
+      }
 
     state = {
         post_img: null,
         text: null,
         loading: false,
-        msg: ''
+        msg: '', 
+        user: this.props.auth.user.user
     }
 
+   
 
     handleImgUpload = (e) => {
         if (e.target.files[0]) {
@@ -46,7 +54,13 @@ class AddPost extends Component {
 
             this.setState({msg: ''})
 
-            const res = await axios.post('api/post', {text: this.state.text, post_img: this.state.post_img }, {
+            axios.post('api/post', {
+                profile_img: this.state.user.profile_img,
+                last_name: this.state.user.last_name,
+                name: this.state.user.name,
+                username: this.state.user.username,
+                 text: this.state.text, 
+                 post_img: this.state.post_img }, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -89,4 +103,9 @@ class AddPost extends Component {
     }
 };
 
-export default AddPost;
+const mapStateToProps = state => ({
+    auth: state.auth
+  });
+  
+  
+  export default connect(mapStateToProps, null)(AddPost);

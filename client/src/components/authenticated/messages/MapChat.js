@@ -43,10 +43,7 @@ componentDidMount() {
     }else if(location_f.location_f.username==this.props.auth.user.user.username){
       this.setState({my_location: location_f.location_f.location});
     }else{
-      console.log(location_f.location_f.username)
-      console.log(window.location.pathname.split('/')[2])
-      console.log('Es mer@ chi');
-      console.log(location_f);
+
       
     }
   });

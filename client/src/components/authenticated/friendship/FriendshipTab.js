@@ -30,7 +30,7 @@ class FriendshipTab extends Component {
                 this.setState({
                     friendship_info: res.data
                 });
-                console.log(this.state);
+               
             });
     }
 
@@ -72,7 +72,7 @@ class FriendshipTab extends Component {
                         
                         if(friend.username === this.state.info.user.username){
                              r = true;
-                             console.log("wow")
+                             
                         }
                     })
 
@@ -125,7 +125,7 @@ class FriendshipTab extends Component {
             e.preventDefault();
 
             axios.post('../api/friendship/friend_request', { friend_form })
-                .then(res => { console.log(res.data.msg); msg = res.data.msg; this.setState({ ank: false }) });
+                .then(res => {  msg = res.data.msg; this.setState({ ank: false }) });
 
 
         }) : (null);
@@ -137,7 +137,7 @@ class FriendshipTab extends Component {
 
         return (
             <Fragment>
-                {console.log(friend_form)}
+                
 
                 {/* {msg ? (<div>Friend rewsd</div>) : (null)} */}
                 {btn_status()}

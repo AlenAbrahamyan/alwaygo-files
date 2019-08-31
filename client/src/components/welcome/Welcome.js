@@ -11,7 +11,7 @@ class Welcome extends Component {
                 <title>Welcome alwaygo</title>
 
                 <SimpleNavbar />
-                <img className='nk_a' src='https://scontent.fevn5-1.fna.fbcdn.net/v/t1.15752-0/p280x280/69370666_1387835631395138_7465498354177277952_n.png?_nc_cat=102&_nc_oc=AQklR2mRHsZi1evQZUi7ToZ-zWCClPuFXzREjWK6XsrkLB2A5d3fEXNhT5JAWCKQx3k&_nc_ht=scontent.fevn5-1.fna&oh=4a28da7b6cbb97e3372db1e447c2218c&oe=5E1658EF'/>
+                <img className='nk_a' src='https://scontent.xx.fbcdn.net/v/t1.15752-0/p280x280/69305523_1322880497870571_2650977076357627904_n.png?_nc_cat=109&_nc_oc=AQnzGebHYkfUfMxOJAQcinsSYqB8108REQvoiIzBLCwPFKycPDw_LH0OvNGUIQKlhR16GqVd_iLBrYSfvVBTkDbF&_nc_ad=z-m&_nc_cid=0&_nc_zor=9&_nc_ht=scontent.xx&oh=c9e3568be288a247566b27d64ab4bcf1&oe=5DC90F46'/>
                
                 <LoginForm />
 

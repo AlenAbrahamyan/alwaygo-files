@@ -17,7 +17,7 @@ const PostBox = ({ posts }) => {
                                     <img src={post.profile_img}  className='PostBox2' />
                                     <div className='PostBox3'>
                                         <a href={`/profile/${post.username}`} className='post_name'>{post.name} {post.last_name}</a>
-                                        <p className="gray">@{post.username}</p>
+                                        <p className="gray">{post.username}</p>
                                     </div>
                                 </div>
                                 <p>{post.text}</p>

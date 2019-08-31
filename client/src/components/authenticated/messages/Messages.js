@@ -153,7 +153,7 @@ class Notification extends Component {
                                    <br/>
                                    <div className='name_15'>
                                 <a className="no_pro_name">{friend.name} {friend.last_name}</a>
-                                        <p className="no_pro_username">@{friend.username}</p>
+                                        <p className="no_pro_username">{friend.username}</p>
                                         </div>
                                         
                                 </div>
@@ -167,7 +167,7 @@ class Notification extends Component {
                                       </div>
                                       <div className="name_div_msg">
                                         <a className="no_pro_name2" href={`/profile/${this.state.UserFriend.username}`}>{this.state.UserFriend.name} {this.state.UserFriend.last_name}</a>
-                                        <p className="no_pro_username">@{this.state.UserFriend.username}</p>
+                                        <p className="no_pro_username">{this.state.UserFriend.username}</p>
                                         </div>
                                         {this.state.zona_status ? (
                                         <a onClick={change_zona_status} className="ChangeZona"><img src='https://scontent.fevn5-1.fna.fbcdn.net/v/t1.15752-9/69803884_352473528989671_7223696338272124928_n.png?_nc_cat=111&_nc_oc=AQnpKOK0Z8EPYvbTEs8JkhzcVxoF36b95pDtjILH-Y6qqFlN5YBtD7BOmb4HGlZNNgk&_nc_ht=scontent.fevn5-1.fna&oh=f74e07a5a5c038f13b984be6f65a98ef&oe=5DD7B17E'/> <div className="no_pro_name3">Geolocations</div></a>

@@ -80,7 +80,7 @@ class Notification extends Component {
                         
                         <div className="no_us_name">
                             <a className="no_pro_name" href={`/profile/${friend.username}`}>{friend.name} {friend.last_name}</a>
-                            <p className="no_pro_username">@{friend.username}</p>
+                            <p className="no_pro_username">{friend.username}</p>
 
                         </div>
 
@@ -117,7 +117,7 @@ class Notification extends Component {
                                     <div className="no_pro_block2">
                                     <div className='no_ank'>
                                         <a className="no_pro_name" >{friend.name} {friend.last_name}</a>
-                                        <p className="no_pro_username">@{friend.username}</p>
+                                        <p className="no_pro_username">{friend.username}</p>
                                     </div>
 
                                         <img src='https://scontent.fevn5-1.fna.fbcdn.net/v/t1.15752-9/69180624_677305992751626_1130278196504166400_n.png?_nc_cat=102&_nc_oc=AQl8Lyxy5TIYh8j1Da2LJS6Z4z8OPE01Wb81vx6QAC41Q7fn6-T9WpwqoXMMfRO17-E&_nc_ht=scontent.fevn5-1.fna&oh=4d87948a272a3b0c6f0a8b51b072a86e&oe=5E050550' className='img_bg_msg'/>

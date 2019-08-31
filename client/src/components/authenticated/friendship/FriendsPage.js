@@ -25,7 +25,7 @@ class Notification extends Component {
                 this.setState({
                     friendship_info: res.data
                 });
-                console.log(this.state);
+               
             });
 
     }
@@ -41,7 +41,7 @@ class Notification extends Component {
 
         const onClick = (num) => {
             index = num;
-            console.log(index);
+        
 
         };
 
@@ -52,7 +52,7 @@ class Notification extends Component {
             e.preventDefault();
 
             axios.post('../api/friendship/accept_friend_request', { user: this.props.auth.user.user, friend: user })
-                .then(res => { console.log(res.data.msg); let arr = this.state.accepted; arr.push(res.data.msg); this.setState({ accepted: arr }) });
+                .then(res => {let arr = this.state.accepted; arr.push(res.data.msg); this.setState({ accepted: arr }) });
 
 
         }) : (null);

@@ -18,10 +18,6 @@ router.post('/', (req, res) => {
         if(req.body.text==null){req.body.text=''}
         if(req.body.post_img==null){req.body.post_img=''}
 
-        req.body.name = user.user_info.name;
-        req.body.last_name = user.user_info.last_name;
-        req.body.username = user.user_info.username;
-        req.body.profile_img = user.user_info.profile_img;
 
 
         res.json({ post_content: req.body });
@@ -57,6 +53,13 @@ router.get('/get_all_post', (req, res) => {
 
 
 module.exports = router;
+
+
+
+
+
+
+
 
 
 

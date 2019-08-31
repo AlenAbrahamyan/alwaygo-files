@@ -880,8 +880,26 @@ min-height: 65px;
   display: none;
 }
 
+.nk_a{
+  position: absolute;
+  margin-left:10%;
+  margin-top:3%;
+  height: 70%;
+
+}
+
+@media only screen and (max-width: 800px) {
+  .nk_a{
+    display: none;
+  }
+}
 
 @media only screen and (max-width: 500px) {
+
+  .nk_a{
+    position: absolute;
+    display: none;
+  }
 
   .act_mob{
     display: block;

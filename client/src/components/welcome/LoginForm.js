@@ -61,7 +61,7 @@ class LoginForm extends Component {
     render() {
         return (
             <div className="LoginForm">
-                <form onSubmit={this.onSubmit}>
+              <form onSubmit={this.onSubmit}>
                     <center>
                     <p className="green_title">Sign in</p>
 

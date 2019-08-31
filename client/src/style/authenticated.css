@@ -1374,7 +1374,8 @@ textarea{
 .green_title5{
   color: #48c9b0;
   font-size: 40px;
-  margin-left: 35%;
+  margin-top:50px;
+  margin-left: 2%;
 }
 
 .green_title_2{
@@ -1399,17 +1400,7 @@ textarea{
 margin-left: 120px;
 }
 
-.no_pro_block{
-  height: 100px;
-  margin-top: 20px; 
-  box-shadow: -1px -2px 20px 0px #00000021;  
-  background-color: white;
-  padding: 15px;
-  width: 500px;
-  margin-left: 25%;
-  overflow: hidden;
-  position: relative;
-}
+
 
 .no_pro_block{
   height: 100px;
@@ -1417,8 +1408,8 @@ margin-left: 120px;
   box-shadow: -1px -2px 20px 0px #00000021;  
   background-color: white;
   padding: 15px;
-  width: 500px;
-  margin-left: 25%;
+  width: 90%;
+  margin-left: 2%;
   overflow: hidden;
   position: relative;
 }
@@ -1430,8 +1421,8 @@ margin-left: 120px;
   box-shadow: -1px -2px 20px 0px #00000021;  
   background-color: white;
   padding: 15px;
-  width: 30%;
-  margin-left: 35%;
+  width: 90%;
+  margin-left: 2%;
   overflow: hidden;
   position: relative;
 }

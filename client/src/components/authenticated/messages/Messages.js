@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ContainerMsg from 'react-scroll-to-bottom';
 import MapCat from './MapChat';
-const socket = openSocket('https://alwaygo-server.herokuapp.com');
+const socket = openSocket('http://localhost:8080');
 
 
 //socket.on('get_messages', msg_arr => {ank_arr = msg_arr; console.log(msg_arr)});
@@ -39,13 +39,13 @@ class Notification extends Component {
 
         
         const username_f = this.props.match.params.username;
-      
+        console.log(username_f);
         axios.get('/api/profile/' + username_f)
         .then(res => {
           this.setState({
             UserFriend: res.data.user
           });
-        
+          console.log(this.state.UserFriend);
         });
 
         axios.get('../api/friendship/friendship_info/' + this.props.auth.user.user.username)
@@ -53,17 +53,18 @@ class Notification extends Component {
                 this.setState({
                     friendship_info: res.data
                 });
-            
+                console.log(this.state);
             });
 
-            socket.on('get_messages', msg_arr => {
+            socket.on('get_messages', msg_arr => {console.log(msg_arr);  
                 let ln = this.props.match.params.username+this.props.auth.user.user.username;
                 let ln2= this.props.auth.user.user.username+this.props.match.params.username;
                 let gn = msg_arr.friend + msg_arr.user;
                 if( ln==gn  ){
                    
                     this.setState({ msg_arr:  msg_arr})
-   
+                    console.log(this.props.match.params.username + this.props.auth.user.user.username)
+                    console.log(msg_arr.friend + msg_arr.user)
                   }
                   
                   

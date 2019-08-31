@@ -19,9 +19,9 @@ class AddPost extends Component {
           uploadTask.on('state_changed',
             (snapshot) => {
               this.setState({ loading: true })
-             
+              console.log(snapshot);
               snapshot.ref.getDownloadURL().then((downloadUrl) => {
-               
+                console.log(downloadUrl);
                 this.setState({ post_img: downloadUrl })
                 this.setState({ loading: false })
 

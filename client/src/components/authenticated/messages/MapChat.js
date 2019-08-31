@@ -3,7 +3,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import openSocket from 'socket.io-client';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-const socket = openSocket('https://alwaygo-server.herokuapp.com');
+const socket = openSocket('http://localhost:8080');
 
 class MapContainer extends Component {
   static propTypes = {
@@ -18,7 +18,7 @@ state = {
 
 componentDidMount() {
   if (navigator.geolocation) {
-   
+    console.log('ha');
     
     navigator.geolocation.getCurrentPosition( position => {
       this.setState({my_location: {lat:position.coords.latitude, lon:position.coords.longitude}});
@@ -26,7 +26,7 @@ componentDidMount() {
       socket.emit('location', {
         location: {username: this.props.auth.user.user.username, location: {lat:position.coords.latitude, lon:position.coords.longitude}}
      })}, 5000)
-    
+      console.log(this.state.my_location);
     });
 
   } else { 
@@ -35,14 +35,18 @@ componentDidMount() {
 
   socket.on('get_location', location_f => {
     if(location_f.location_f.username==window.location.pathname.split('/')[2]){
-
+      console.log('Aysa merna!');
+      console.log(location_f); 
       this.setState({friend_location: location_f.location_f.location});
    
 
     }else if(location_f.location_f.username==this.props.auth.user.user.username){
       this.setState({my_location: location_f.location_f.location});
     }else{
-
+      console.log(location_f.location_f.username)
+      console.log(window.location.pathname.split('/')[2])
+      console.log('Es mer@ chi');
+      console.log(location_f);
       
     }
   });

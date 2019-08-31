@@ -13,7 +13,7 @@ class MainBar extends Component {
             this.setState({
               posts: res.data
             });
-            
+            console.log(this.state)
           });
           
       }

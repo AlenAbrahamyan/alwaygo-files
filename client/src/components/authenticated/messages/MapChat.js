@@ -3,7 +3,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import openSocket from 'socket.io-client';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-const socket = openSocket('http://localhost:8080');
+const socket = openSocket('https://alwaygo-server.herokuapp.com');
 
 class MapContainer extends Component {
   static propTypes = {

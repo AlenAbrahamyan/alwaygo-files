@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ContainerMsg from 'react-scroll-to-bottom';
 import MapCat from './MapChat';
-const socket = openSocket('http://localhost:8080');
+const socket = openSocket('https://alwaygo-server.herokuapp.com');
 
 
 //socket.on('get_messages', msg_arr => {ank_arr = msg_arr; console.log(msg_arr)});

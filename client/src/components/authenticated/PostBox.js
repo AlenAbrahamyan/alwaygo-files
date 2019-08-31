@@ -21,7 +21,7 @@ const PostBox = ({ posts, profile_img }) => {
                                 </div>
                                 <p>{post.text}</p>
                             </div>
-                            <img src={post.post_img} width='577px' />
+                            <img className="lazyload" data-src={post.post_img} width='577px' />
 
 
                         </div>

@@ -35,7 +35,7 @@ class Profile extends Component {
           <div className="profile-info">
             <div>
           <p className="full_name_in_profile_page">{this.state.info.user.name} {this.state.info.user.last_name}</p>
-          <p className="username_in_profile_page">@{this.state.info.user.username}</p>
+          <p className="username_in_profile_page">{this.state.info.user.username}</p>
           </div>
           <div className="btn_area">
           <FriendshipTab/>

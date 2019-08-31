@@ -81,7 +81,7 @@ class Navbar extends Component {
         <div className="profile-info">
           <div>
             <p className="full_name_in_profile_page">{user.user.name} {user.user.last_name}</p>
-            <p className="username_in_profile_page">@{user.user.username}</p>
+            <p className="username_in_profile_page">{user.user.username}</p>
           </div>
 
           <AddPost />

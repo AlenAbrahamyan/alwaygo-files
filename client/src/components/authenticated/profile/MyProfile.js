@@ -9,7 +9,7 @@ import axios from 'axios';
 import { storage } from '../../../config/firebaseConfig';
 
 
-class Navbar extends Component {
+class MyProfile extends Component {
   static propTypes = {
     auth: PropTypes.object.isRequired
   }
@@ -31,7 +31,7 @@ class Navbar extends Component {
             // console.log(downloadUrl);
             this.setState({ img: downloadUrl })
             this.setState({ loading: false })
-            axios.post('api/img_profile', {img_url: downloadUrl}, {
+            axios.post('api/img_profile', {img_url: downloadUrl, user_data: this.props.auth.user.user}, {
               headers: {
                   'Content-Type': 'application/json'
               }
@@ -100,7 +100,11 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, null)(Navbar);
+export default connect(mapStateToProps, null)(MyProfile);
+
+
+
+
 
 
 

@@ -21,7 +21,7 @@
     "express-fileupload": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.3.0",
-    "mongoose": "^5.6.1",
+    "mongoose": "^5.7.5",
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
